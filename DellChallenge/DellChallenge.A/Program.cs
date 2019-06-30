@@ -8,7 +8,17 @@ namespace DellChallenge.A
         {
             // State and explain console output order.
             new B();
-            Console.ReadKey();
+/*
+    Console Output:
+    A.A()
+    B.B()
+    A.Age
+
+    (1) new B (B : A) => trigger constructor for [class A] first => Output: "A.A()"
+    (2) => afterwards the [class B] constructor is called => Output: "B.B()"
+    (3) [class B] constructor calls the [class A].[Age] function => Output: "A.Age"
+*/
+            Console.ReadKey();            
         }
     }
 
