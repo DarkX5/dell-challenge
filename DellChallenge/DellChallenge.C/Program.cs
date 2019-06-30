@@ -16,24 +16,47 @@ namespace DellChallenge.C
 
         private static void StartHere()
         {
-            myObject _MyNewObject = new myObject();
-            int obj1 = _MyNewObject.Do(1, 3);
-            int num2 = _MyNewObject.DoExtended(1, 3, 5);
-            Console.WriteLine(obj1);
-            Console.WriteLine(num2);
+            sumMethods sumM = new sumMethods();
+            
+            var NoSum1 = sumM.DoSum(1, 3);
+            var NoSum2 = sumM.DoSum(1, 3, 5);
+            var NoSum3 = sumM.DoSum(1, 2, 3, 4, 5, 6);
+
+            WriteResults(NoSum1, NoSum2, NoSum3);
+        }
+
+        private static void WriteResults (params int[] noList)
+        {
+          for(int i = 0; i < noList.Length; i += 1) 
+          {
+            Console.WriteLine(noList[i]);
+          }
         }
     }
 
-    class myObject
+    class sumMethods
     {
 
-        public int Do(int a, int b)
+        public int DoSum(int a, int b)
         {
             return a + b;
         }
 
-        public int DoExtended(int a, int b, int c)
-        { return a + b + c;
+        public int DoSum(int a, int b, int c)
+        { 
+            return a + b + c;
+        }
+ 
+        public int DoSum(params int[] list) 
+        {
+            var result = 0;
+
+            for (int i = 0 ; i < list.Length; i++)
+            {
+                result += list[i];
+            }
+            
+            return result;
         }
     }
 }
