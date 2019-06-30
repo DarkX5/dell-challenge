@@ -23,5 +23,6 @@ namespace DellChallenge.D2.Web.Services
             var apiResponse = apiClient.Execute<List<ProductModel>>(apiRequest);
             return apiResponse.Data;
         }
+        
     }
 }

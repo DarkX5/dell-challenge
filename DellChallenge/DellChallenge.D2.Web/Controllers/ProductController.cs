@@ -7,6 +7,7 @@ namespace DellChallenge.D2.Web.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+        var model = _productService.GetAll();
 
         public ProductController(IProductService productService)
         {
@@ -16,7 +17,6 @@ namespace DellChallenge.D2.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _productService.GetAll();
             return View(model);
         }
 
@@ -29,7 +29,28 @@ namespace DellChallenge.D2.Web.Controllers
         [HttpPost]
         public IActionResult Add(NewProductModel newProduct)
         {
-            _productService.Add(newProduct);
+        	if(newProduct != null && newProduct.Name == null)
+            	_productService.Add(newProduct);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Update(int id, string text, bool isName = true)
+        {
+        //todo
+        	if(!String.IsNullOrWhiteSpace(text)) 
+        	{
+            	_productService.Add(newProduct);
+        	}
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+        //todo
+        	if(newProduct != null && newProduct.Name == null)
+            	_productService.Add(newProduct);
             return RedirectToAction("Index");
         }
     }
