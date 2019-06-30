@@ -39,6 +39,31 @@ namespace DellChallenge.B
         {
             throw new NotImplementedException();
         }
+        
+        public void Fly()
+        {
+            Console.Writeline("I am not a bird");
+            throw new NotImplementedException();
+        }
+
+        public void Swim()
+        {
+            Console.Writeline("I am not a fish");
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Bird : ISpecies
+    {
+        public void Drink()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Eat()
+        {
+            throw new NotImplementedException();
+        }
 
         public void Fly()
         {
@@ -47,16 +72,34 @@ namespace DellChallenge.B
 
         public void Swim()
         {
+            Console.Writeline("I am not a fish");
             throw new NotImplementedException();
         }
-    }
+}
 
-    public class Bird
+    public class Fish : ISpecies
     {
-    }
+        public void Drink()
+        {
+            throw new NotImplementedException();
+        }
 
-    public class Fish
-    {
+        public void Eat()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Fly()
+        {
+             Console.Writeline("I am not a bird");
+           throw new NotImplementedException();
+        }
+       
+        public void Swim()
+        {
+            throw new NotImplementedException();
+        }
+                                                
     }
 }
 
